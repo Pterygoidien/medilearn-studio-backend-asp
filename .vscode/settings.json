@@ -12,8 +12,13 @@
     }, 
     "rest-client.environmentVariables": {
         "$shared": {},
-        "$local": {
-            "url": "http://localhost:5063"
+        "dev": {
+            "version":"v1",
+            "host": "localhost:5063",
+        },
+        "local": {
+            "version":"v1",
+            "host": "localhost:5063",
         },
     }
 }
