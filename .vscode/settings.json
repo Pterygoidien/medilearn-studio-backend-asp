@@ -9,5 +9,11 @@
         "**/node_modules": true,
         "**/.angular": true,
         "**/.vs": true,
+    }, 
+    "rest-client.environmentVariables": {
+        "$shared": {},
+        "$local": {
+            "url": "http://localhost:5063"
+        },
     }
 }
