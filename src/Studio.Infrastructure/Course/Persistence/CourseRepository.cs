@@ -1,3 +1,4 @@
+using ErrorOr;
 using Microsoft.EntityFrameworkCore;
 using Studio.Application.Common.Interfaces;
 using Studio.Domain.Courses;
@@ -28,4 +29,10 @@ public class CourseRepository : ICourseRepository
     {
         return await _dbContext.Courses.FirstOrDefaultAsync(c => c.Title == title);
     }
+
+    public async Task<List<Course>> GetCoursesAsync()
+    {
+        return await _dbContext.Courses.ToListAsync();
+    }
+
 }
