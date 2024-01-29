@@ -1,3 +1,4 @@
+
 using Studio.Application;
 using Studio.Infrastructure;
 
@@ -17,6 +18,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 var app = builder.Build();
 {
+    app.UseStatusCodePages();
     app.UseExceptionHandler();
 
     if (app.Environment.IsDevelopment())
@@ -24,10 +26,8 @@ var app = builder.Build();
         app.UseSwagger();
         app.UseSwaggerUI();
     }
-
     app.UseHttpsRedirection();
     app.UseAuthorization();
     app.MapControllers();
-
     app.Run();
 }
