@@ -1,6 +1,22 @@
 services:
+  webapi:
+    container_name: MediLearn-Studio-API
+    restart: on-failure
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:5001
+      - ASPNETCORE_HTTPS_PORT=5001
+    networks:
+      - medilearn-studio-network
   relational-database:
     image: postgres:latest
+    container_name: relational-database
+    restart: always
     ports:
       - 5438:5432
     environment:
@@ -9,6 +25,11 @@ services:
       POSTGRES_DB: postgres
     volumes:
       - postgres-data:/var/lib/postgresql/data
+    networks:
+      - medilearn-studio-network
 
 volumes:
   postgres-data:
+
+networks:
+  medilearn-studio-network:
