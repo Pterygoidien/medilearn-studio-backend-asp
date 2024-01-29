@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Studio.Application.Common.Interfaces;
 using Studio.Infrastructure.Common.Persistence;
@@ -9,18 +10,21 @@ namespace Studio.Infrastructure;
 public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructure(
-        this IServiceCollection services)
+        this IServiceCollection services,
+        IConfiguration configuration)
     {
 
-        return services.AddPersistence();
+        return services.AddPersistence(configuration);
     }
 
     public static IServiceCollection AddPersistence(
-        this IServiceCollection services)
+        this IServiceCollection services,
+        IConfiguration configuration
+        )
     {
         services.AddDbContext<StudioDbContext>(options =>
         {
-            options.UseSqlite("Data Source = Studio.db");
+            options.UseNpgsql(configuration.GetConnectionString("StudioDb"));
         });
 
         services.AddScoped<ICourseRepository, CourseRepository>();
