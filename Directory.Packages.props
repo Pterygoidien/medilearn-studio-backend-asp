@@ -16,7 +16,7 @@
     <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
     <!-- <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.0" /> -->
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0" />
-    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.0" />
+    <PackageVersion Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.0" />
     <!-- Awesome open-source packages -->
 
     <PackageVersion Include="ErrorOr" Version="1.9.0" />
@@ -25,10 +25,10 @@
     <PackageVersion Include="FluentValidation.AspNetCore" Version="11.3.0" />
     <PackageVersion Include="FluentEmail.Core" Version="3.0.2" />
     <PackageVersion Include="FluentEmail.Smtp" Version="3.0.2" />
-    <PackageReference Include="Ardalis.SmartEnum" Version="8.0.0" />
-    <PackageReference Include="Throw" Version="1.4.0" />
+    <PackageVersion Include="Ardalis.SmartEnum" Version="8.0.0" />
+    <PackageVersion Include="Throw" Version="1.4.0" />
     <!-- Analyzers -->
-    <!-- <PackageVersion Include="StyleCop.Analyzers" Version="1.2.0-beta.556" /> -->
+    <PackageVersion Include="StyleCop.Analyzers" Version="1.2.0-beta.556" />
     <!-- Tests -->
     <!-- <PackageVersion Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.0" />
     <PackageVersion Include="FluentAssertions" Version="6.12.0" />
@@ -42,6 +42,6 @@
     <!-- <PackageVersion Include="Microsoft.Extensions.Identity.Core" Version="8.0.0" />
     <PackageVersion Include="System.IdentityModel.Tokens.Jwt" Version="7.2.0" />
     <PackageVersion Include="Microsoft.AspNetCore.Authentication" Version="2.2.0" />
-    <PackageVersion Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
-  </ItemGroup> -->
+    <PackageVersion Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />-->
+  </ItemGroup> 
 </Project>
