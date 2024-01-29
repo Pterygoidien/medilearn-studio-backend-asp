@@ -2,6 +2,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Studio.Application.Courses.Commands.CreateCourse;
 using Studio.Application.Courses.Queries.GetCourse;
+using Studio.Application.Courses.Queries.ListCourses;
 using Studio.Contracts.Courses;
 
 namespace GymManagement.Api.Controllers;
@@ -34,7 +35,7 @@ public class CourseController : ApiController
 
     [HttpGet("{courseId:guid}")]
     public async Task<IActionResult> GetCourse(
-        [FromQuery] Guid courseId
+        Guid courseId
     )
     {
         var query = new GetCourseQuery(courseId);
@@ -43,4 +44,16 @@ public class CourseController : ApiController
             course => Ok(new CourseResponse(course.Id.ToString(), course.Title)),
             Problem);
     }
+
+    [HttpGet]
+    public async Task<IActionResult> ListCourses()
+    {
+        var query = new ListCoursesQuery();
+        var getCoursesResult = await _mediator.Send(query);
+        return getCoursesResult.Match(
+            courses => Ok(courses.Select(course => new CourseResponse(course.Id.ToString(), course.Title))),
+            Problem);
+    }
+
+
 }
