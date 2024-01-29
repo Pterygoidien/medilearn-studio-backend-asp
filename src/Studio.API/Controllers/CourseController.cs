@@ -1,5 +1,7 @@
 using MediatR;
+
 using Microsoft.AspNetCore.Mvc;
+
 using Studio.Application.Courses.Commands.CreateCourse;
 using Studio.Application.Courses.Queries.GetCourse;
 using Studio.Application.Courses.Queries.ListCourses;
@@ -27,7 +29,12 @@ public class CourseController : ApiController
             course => CreatedAtAction(
                 nameof(GetCourse),
                 new { courseId = course.Id },
-                new CourseResponse(course.Id.ToString(), course.Title)
+                new CourseResponse(
+                course.Id.ToString(),
+                course.Title,
+                course.CreatedAt,
+                course.Description
+            )
             ),
             Problem);
     }
@@ -41,7 +48,12 @@ public class CourseController : ApiController
         var query = new GetCourseQuery(courseId);
         var getCourseResult = await _mediator.Send(query);
         return getCourseResult.Match(
-            course => Ok(new CourseResponse(course.Id.ToString(), course.Title)),
+            course => Ok(new CourseResponse(
+                course.Id.ToString(),
+                course.Title,
+                course.CreatedAt,
+                course.Description
+            )),
             Problem);
     }
 
@@ -51,7 +63,13 @@ public class CourseController : ApiController
         var query = new ListCoursesQuery();
         var getCoursesResult = await _mediator.Send(query);
         return getCoursesResult.Match(
-            courses => Ok(courses.Select(course => new CourseResponse(course.Id.ToString(), course.Title))),
+            courses => Ok(courses.Select(course =>
+            new CourseResponse(
+                course.Id.ToString(),
+                course.Title,
+                course.CreatedAt,
+                course.Description
+            ))),
             Problem);
     }
 
