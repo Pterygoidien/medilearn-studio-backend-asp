@@ -1,0 +1,2 @@
+@host=localhost:5063
+GET http://{{host}}/api/course/
