@@ -1,0 +1,3 @@
+@host=localhost:5063
+@courseId=cff318a7-dc15-4f53-b4c1-63cb00af656f
+GET http://{{host}}/api/course/{{courseId}}
