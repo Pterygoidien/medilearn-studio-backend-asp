@@ -19,8 +19,6 @@ public class GetCourseQueryHandler : IRequestHandler<GetCourseQuery, ErrorOr<Cou
         var course = await _courseRepository.GetCourseByIdAsync(request.Id);
         if (course is null)
             return Error.NotFound("Course not found");
-
-
         return course;
     }
 }
