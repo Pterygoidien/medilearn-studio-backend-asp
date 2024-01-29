@@ -1,10 +1,11 @@
 using ErrorOr;
+
 using Studio.Domain.Chapters;
 using Studio.Domain.Common;
 
 namespace Studio.Domain.Sections;
 
-public class Section : BaseEntity
+public class Section : StudioEntity
 {
     public string? Description { get; set; }
     private readonly List<Guid> _chapterIds = new();

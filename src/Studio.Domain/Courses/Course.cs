@@ -1,10 +1,11 @@
 using ErrorOr;
+
 using Studio.Domain.Common;
 using Studio.Domain.Sections;
 
 namespace Studio.Domain.Courses;
 
-public class Course : BaseEntity
+public class Course : StudioEntity
 {
     public string? Description { get; set; }
     public string Author { get; set; }

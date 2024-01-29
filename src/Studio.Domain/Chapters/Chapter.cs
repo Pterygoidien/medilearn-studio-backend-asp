@@ -6,7 +6,7 @@ namespace Studio.Domain.Chapters;
 
 using Studio.Domain.Common;
 
-public class Chapter : BaseEntity
+public class Chapter : StudioEntity
 {
     /// <summary>
     /// Gets or sets the description of the chapter.
