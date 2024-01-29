@@ -4,7 +4,6 @@
     <UserSecretsId>3385c2cd-328e-4517-ab21-a733326035cb</UserSecretsId>
   </PropertyGroup>
 
-
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
